@@ -1,0 +1,206 @@
+                                        
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+                                        
+                 Version K-2015.06 for linux64 - May 28, 2015 
+                                        
+                    Copyright (c) 1988 - 2015 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+Initializing gui preferences from file  /home/IC/.synopsys_dv_prefs.tcl
+##################### Define Working Library Directory ######################
+define_design_lib work -path ./work
+1
+################## Design Compiler Library Files #setup ######################
+puts "###########################################"
+###########################################
+puts "#      #setting Design Libraries           #"
+#      #setting Design Libraries           #
+puts "###########################################"
+###########################################
+#Add the path of the libraries to the search_path variable
+lappend search_path /home/IC/CRCO/CDC/CDC3/std_cells
+. /opt/Synopsys/Synplify2015/libraries/syn /opt/Synopsys/Synplify2015/minpower/syn /opt/Synopsys/Synplify2015/dw/syn_ver /opt/Synopsys/Synplify2015/dw/sim_ver /home/IC/CRCO/CDC/CDC3/std_cells
+lappend search_path /home/IC/CRCO/CDC/CDC3/rtl
+. /opt/Synopsys/Synplify2015/libraries/syn /opt/Synopsys/Synplify2015/minpower/syn /opt/Synopsys/Synplify2015/dw/syn_ver /opt/Synopsys/Synplify2015/dw/sim_ver /home/IC/CRCO/CDC/CDC3/std_cells /home/IC/CRCO/CDC/CDC3/rtl
+set TTLIB "scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db"
+scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db
+## Standard Cell libraries 
+set target_library [list $TTLIB ]
+scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db
+## Standard Cell & Hard Macros libraries 
+set link_library [list * $TTLIB]  
+* scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db
+######################## Reading RTL Files #################################
+puts "###########################################"
+###########################################
+puts "#             Reading RTL Files           #"
+#             Reading RTL Files           #
+puts "###########################################"
+###########################################
+set file_format verilog
+verilog
+analyze -format $file_format RST_SYNC.v
+Running PRESTO HDLC
+Compiling source file /home/IC/CRCO/CDC/CDC3/rtl/RST_SYNC.v
+Presto compilation completed successfully.
+Loading db file '/home/IC/CRCO/CDC/CDC3/std_cells/scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db'
+1
+elaborate -lib work RST_SYNC
+Loading db file '/opt/Synopsys/Synplify2015/libraries/syn/gtech.db'
+Loading db file '/opt/Synopsys/Synplify2015/libraries/syn/standard.sldb'
+  Loading link library 'scmetro_tsmc_cl013g_rvt_tt_1p2v_25c'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+
+Inferred memory devices in process
+	in routine RST_SYNC line 10 in file
+		'/home/IC/CRCO/CDC/CDC3/rtl/RST_SYNC.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    Flipflops_reg    | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'RST_SYNC'.
+1
+#################### Liniking All The Design Parts #########################
+puts "###############################################"
+###############################################
+puts "######## Liniking All The Design Parts ########"
+######## Liniking All The Design Parts ########
+puts "###############################################"
+###############################################
+link 
+
+  Linking design 'RST_SYNC'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  RST_SYNC                    /home/IC/CRCO/CDC/CDC3/syn/RST_SYNC.db
+  scmetro_tsmc_cl013g_rvt_tt_1p2v_25c (library) /home/IC/CRCO/CDC/CDC3/std_cells/scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db
+
+1
+#################### Liniking All The Design Parts #########################
+puts "###############################################"
+###############################################
+puts "######## checking design consistency ##########"
+######## checking design consistency ##########
+puts "###############################################"
+###############################################
+check_design
+1
+###################### Mapping and optimization ########################
+puts "###############################################"
+###############################################
+puts "########## Mapping & Optimization #############"
+########## Mapping & Optimization #############
+puts "###############################################"
+###############################################
+compile
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | K-2015.06-DWBB_201506.0 |     *     |
+| Licensed DW Building Blocks        |                         |           |
+============================================================================
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'RST_SYNC'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: Design 'RST_SYNC' has no optimization constraints set. (OPT-108)
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01      63.5      0.00       0.0       0.0                          
+    0:00:02      63.5      0.00       0.0       0.0                          
+    0:00:02      63.5      0.00       0.0       0.0                          
+    0:00:02      63.5      0.00       0.0       0.0                          
+    0:00:02      63.5      0.00       0.0       0.0                          
+    0:00:02      63.5      0.00       0.0       0.0                          
+    0:00:02      63.5      0.00       0.0       0.0                          
+    0:00:02      51.8      0.00       0.0       0.0                          
+    0:00:02      51.8      0.00       0.0       0.0                          
+    0:00:02      51.8      0.00       0.0       0.0                          
+    0:00:02      51.8      0.00       0.0       0.0                          
+    0:00:02      51.8      0.00       0.0       0.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:02      51.8      0.00       0.0       0.0                          
+    0:00:02      51.8      0.00       0.0       0.0                          
+    0:00:02      51.8      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:02      51.8      0.00       0.0       0.0                          
+    0:00:02      51.8      0.00       0.0       0.0                          
+    0:00:02      51.8      0.00       0.0       0.0                          
+    0:00:02      51.8      0.00       0.0       0.0                          
+    0:00:02      51.8      0.00       0.0       0.0                          
+    0:00:02      51.8      0.00       0.0       0.0                          
+    0:00:02      51.8      0.00       0.0       0.0                          
+    0:00:02      51.8      0.00       0.0       0.0                          
+    0:00:02      51.8      0.00       0.0       0.0                          
+    0:00:02      51.8      0.00       0.0       0.0                          
+    0:00:02      51.8      0.00       0.0       0.0                          
+Loading db file '/home/IC/CRCO/CDC/CDC3/std_cells/scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+#############################################################################
+# Write out Design after initial compile
+#############################################################################
+write_file -format verilog -hierarchy -output RST_SYNC_mapped.v
+Writing verilog file '/home/IC/CRCO/CDC/CDC3/syn/RST_SYNC_mapped.v'.
+1
+################# starting graphical user interface #######################
+gui_start
+Current design is 'RST_SYNC'.
+#exit
+dc_shell> dc_shell> Current design is 'RST_SYNC'.
+Loading db file '/opt/Synopsys/Synplify2015/libraries/syn/generic.sdb'
+dc_shell> 
+Received Signal 1 from: PID=21974 (UID=501)
